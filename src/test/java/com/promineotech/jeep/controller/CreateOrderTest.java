@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
+//import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -54,7 +55,7 @@ class CreateOrderTest {
    assertThat(response.getBody()).isNotNull();
 
    Order order = response.getBody();
-   assertThat(order.getCustomer().getCustomerId()).isEqualTo("ASTERN_TORO");
+   assertThat(order.getCustomer().getCustomerId()).isEqualTo("STERN_TORO");
    assertThat(order.getModel().getModelId()).isEqualTo(JeepModel.CHEROKEE);
    assertThat(order.getModel().getTrimLevel()).isEqualTo("Altitude");
    assertThat(order.getModel().getNumDoors()).isEqualTo(4);
@@ -65,10 +66,10 @@ class CreateOrderTest {
 
   }
 
-  public String createOrderBody() {
+  protected String createOrderBody() {
     // @formatter:off
    return "{\n"
-        + "  \"customer\":\"ASTERN_TORO\",\n"
+        + "  \"customer\":\"STERN_TORO\",\n"
         + "  \"model\":\"CHEROKEE\",\n"
         + "  \"trim\":\"Altitude\",\n"
         + "  \"doors\":\"4\",\n"
@@ -85,6 +86,4 @@ class CreateOrderTest {
         + "";
     // @formatter:on
   }
-  
-
 }
